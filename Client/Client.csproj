@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D47D8BA5-017B-4500-8D86-3CED57AB804A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>msagent</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conf\Constant.cs" />
+    <Compile Include="Conf\NetCommandMessage.cs" />
+    <Compile Include="Controller\AgentIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\AgentIP.Designer.cs">
+      <DependentUpon>AgentIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\FileManager.cs" />
+    <Compile Include="Controller\FirewallMonitor.cs" />
+    <Compile Include="Controller\HistoryController.cs" />
+    <Compile Include="Controller\NetworkController.cs" />
+    <Compile Include="Controller\MainController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\MainController.Designer.cs">
+      <DependentUpon>MainController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\ProcessMonitor.cs" />
+    <Compile Include="Controller\SendMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\SendMessage.Designer.cs">
+      <DependentUpon>SendMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\TaskbarNotifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\UninstallerMonitor.cs" />
+    <Compile Include="Controller\USBController.cs" />
+    <Compile Include="Controller\RegistryMonitor.cs" />
+    <Compile Include="Controller\SafeModeDisable.cs" />
+    <Compile Include="Controller\ScreenCapture.cs" />
+    <Compile Include="Controller\USBDetector.cs" />
+    <Compile Include="Controller\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContentClickEventArgs.cs" />
+    <Compile Include="Model\NotifierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Model\NotifierForm.Designer.cs" />
+    <Compile Include="Model\PingServer.cs" />
+    <Compile Include="Model\RemoteIpsModel.cs" />
+    <Compile Include="Model\TCPServer.cs" />
+    <Compile Include="Model\UDPServer.cs" />
+    <Compile Include="Model\UsbLog.cs" />
+    <Compile Include="Model\XmlDataSerializer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Util\BitmapRegion.cs" />
+    <Compile Include="Util\NetInformation.cs" />
+    <Compile Include="Util\RegistryMonitor.cs" />
+    <Compile Include="Util\Util.cs" />
+    <EmbeddedResource Include="Controller\AgentIP.resx">
+      <DependentUpon>AgentIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\MainController.resx">
+      <DependentUpon>MainController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\SendMessage.resx">
+      <DependentUpon>SendMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\TaskbarNotifier.resx">
+      <DependentUpon>TaskbarNotifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controller\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model\NotifierForm.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\close.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\skin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\Mak_00047.png" />
+    <None Include="Resource\mark-img\Mak_00046.png" />
+    <None Include="Resource\mark-img\Mak_00045.png" />
+    <None Include="Resource\mark-img\Mak_00044.png" />
+    <None Include="Resource\mark-img\Mak_00043.png" />
+    <None Include="Resource\mark-img\Mak_00042.png" />
+    <None Include="Resource\mark-img\Mak_00041.png" />
+    <None Include="Resource\mark-img\Mak_00040.png" />
+    <None Include="Resource\mark-img\Mak_00039.png" />
+    <None Include="Resource\mark-img\Mak_00038.png" />
+    <None Include="Resource\mark-img\Mak_00037.png" />
+    <None Include="Resource\mark-img\Mak_00036.png" />
+    <None Include="Resource\mark-img\Mak_00035.png" />
+    <None Include="Resource\mark-img\Mak_00034.png" />
+    <None Include="Resource\mark-img\Mak_00033.png" />
+    <None Include="Resource\mark-img\Mak_00032.png" />
+    <None Include="Resource\mark-img\Mak_00031.png" />
+    <None Include="Resource\mark-img\Mak_00030.png" />
+    <None Include="Resource\mark-img\Mak_00029.png" />
+    <None Include="Resource\mark-img\Mak_00028.png" />
+    <None Include="Resource\mark-img\Mak_00027.png" />
+    <None Include="Resource\mark-img\Mak_00026.png" />
+    <None Include="Resource\mark-img\Mak_00025.png" />
+    <None Include="Resource\mark-img\Mak_00024.png" />
+    <None Include="Resource\mark-img\Mak_00023.png" />
+    <None Include="Resource\mark-img\Mak_00022.png" />
+    <None Include="Resource\mark-img\Mak_00021.png" />
+    <None Include="Resource\mark-img\Mak_00020.png" />
+    <None Include="Resource\mark-img\Mak_00019.png" />
+    <None Include="Resource\mark-img\Mak_00018.png" />
+    <None Include="Resource\mark-img\Mak_00017.png" />
+    <None Include="Resource\mark-img\Mak_00016.png" />
+    <None Include="Resource\mark-img\Mak_00015.png" />
+    <None Include="Resource\mark-img\Mak_00014.png" />
+    <None Include="Resource\mark-img\Mak_00013.png" />
+    <None Include="Resource\mark-img\Mak_00012.png" />
+    <None Include="Resource\mark-img\Mak_00011.png" />
+    <None Include="Resource\mark-img\Mak_00010.png" />
+    <None Include="Resource\mark-img\Mak_00009.png" />
+    <None Include="Resource\mark-img\Mak_00008.png" />
+    <None Include="Resource\mark-img\Mak_00007.png" />
+    <None Include="Resource\mark-img\Mak_00006.png" />
+    <None Include="Resource\mark-img\Mak_00005.png" />
+    <None Include="Resource\mark-img\Mak_00004.png" />
+    <None Include="Resource\mark-img\Mak_00003.png" />
+    <None Include="Resource\mark-img\Mak_00002.png" />
+    <None Include="Resource\mark-img\Mak_00001.png" />
+    <None Include="Resource\mark-img\Mak_00000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00043.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00044.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00046.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img\ma_00047.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00043.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00044.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00046.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img1\ma_00047.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00001.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00002.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00003.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00004.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00005.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00006.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00007.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00008.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00009.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00010.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00011.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00012.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00013.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00014.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00015.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00016.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00017.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00018.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00019.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00020.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00021.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00022.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00023.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00024.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00025.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00026.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00027.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00028.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00029.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00030.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00031.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00032.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00033.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00034.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00035.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00036.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00037.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00038.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00039.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00040.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00041.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00042.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00043.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00044.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00045.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00046.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00047.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\c00048.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00000.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00001.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00002.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00003.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00004.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00005.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00006.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00007.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00008.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00009.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00010.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00011.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00012.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00013.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00014.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00015.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00016.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00017.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00018.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00019.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00020.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00021.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00022.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00023.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00024.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00025.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00026.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00027.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00028.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00029.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00030.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00031.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00032.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00033.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00034.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00035.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00036.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00037.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00038.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00039.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00040.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00041.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00042.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00043.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00044.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00045.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00046.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\3\ma_00047.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00043.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00044.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00046.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\2\ma_00047.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00008.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00009.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00012.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00013.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00014.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00015.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00016.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00017.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00018.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00019.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00020.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00021.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00022.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00025.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00026.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00027.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00028.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00029.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00031.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00032.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00033.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00034.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00035.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00036.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00037.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00038.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00039.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00040.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00041.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00043.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00044.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00045.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00046.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img3\ma_00047.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00000.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00001.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00002.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00003.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00004.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00005.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00006.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00007.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00008.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00009.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00010.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00011.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00012.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00013.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00014.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00015.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00016.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00017.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00018.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00019.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00020.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00021.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00022.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00023.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00024.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00025.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00026.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00027.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00028.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00029.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00030.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00031.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00032.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00033.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00034.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00035.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00036.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00037.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00038.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00039.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00040.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00041.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00042.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00043.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00044.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00045.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00046.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\mark-img2\ma_00047.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrayIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img100.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img102.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img104.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetPath)" "$(SolutionDir)Install\" /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
